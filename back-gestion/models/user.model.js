@@ -1,6 +1,7 @@
 var UserSchema = new mongoose.Schema({
     nom: String,
-    prenom: String
+    prenom: String,
+    pseudo: String
 })
 
 UserSchema.plugin(mongoosePaginate)
