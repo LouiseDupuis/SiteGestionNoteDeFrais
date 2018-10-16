@@ -1,0 +1,27 @@
+
+<div class="page-header">
+        <h1>Mes Notes</h1>
+      <!-- </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor ='let note of notes'> {{note.nom | uppercase}} </li>
+            
+          </ul>
+        </div>
+    </div> -->
+
+<div class="col-sm-4">
+          <div class="list-group">
+            <a 
+               class="list-group-item" 
+               *ngFor ='let note of notes' 
+               (click) = "onSelect(note)">
+              <h4 class="list-group-item-heading">{{note.nom}}</h4>
+              <p class="list-group-item-text">{{note.date}}</p>
+            </a>
+          </div>
+        </div><!-- /.col-sm-4 -->
+</div>
+
+<app-notes-details [note] = "noteSelect"></app-notes-details>
