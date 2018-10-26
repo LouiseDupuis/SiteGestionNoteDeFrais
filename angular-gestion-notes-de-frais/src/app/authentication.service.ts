@@ -26,7 +26,6 @@ export interface TokenPayload {
 export class AuthenticationService {
 
   api_url = 'http://localhost:3000';
-  private urlSimple = `${this.api_url}/api`;
 
 
   private token: string;
@@ -71,8 +70,10 @@ export class AuthenticationService {
 
     if (method === 'post') {
       base = this.http.post(`http://localhost:3000/api/${type}`, user);
+      base.withCredentials = true; 
     } else {
       base = this.http.get(`http://localhost:3000/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      base.withCredentials = true;
     }
 
     const request = base.pipe(

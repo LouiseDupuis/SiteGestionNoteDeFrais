@@ -37,7 +37,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
+
+var corsOptions = {
+  origin: '*',
+  credentials: true };
+
+app.use(cors(corsOptions));
 
 //allow connection with a different port 
 
@@ -49,7 +54,7 @@ app.use(cors());
 }); */
 
 // j'ai eu des problèmes de CORS, je teste donc différentes méthodes : 
-var permitCrossDomainRequests = function(req, res, next) {
+/* var permitCrossDomainRequests = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -60,7 +65,7 @@ var permitCrossDomainRequests = function(req, res, next) {
   else {
     next();
   }
-  };
+  }; */
 
 
   app.use(permitCrossDomainRequests);
