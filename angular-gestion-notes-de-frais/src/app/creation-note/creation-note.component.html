@@ -1,12 +1,32 @@
+<!-- <div class="container theme-showcase">
+    <div class='jumbotron'>
+        <h4> Nouvelle Note de Frais : {{titreNote}} </h4>
 
-<div><h4> Nouvelle Note de Frais : {{titreNote}} </h4>
-  
-   <p> Titre  <input type ="text" 
-          [(ngModel)]= "titreNote"> </p>
-   <p> Date <input type = "text" [(ngModel)] = "dateNote ">   </p>
-    <p> Montant <input type = "text" [(ngModel)] = "montantNote ">   </p>
-    <p> Devise <input type = "text" [(ngModel)] = "deviseNote ">   </p>
-    <p> Commentaire <input type = "text" [(ngModel)] = "commentaireNote ">   </p>
-</div>
+        <p> Titre
+            <input type="text" [(ngModel)]="titreNote"> </p>
+        <p> Date
+            <input type="text" [(ngModel)]="dateNote "> </p>
+        <p> Montant
+            <input type="text" [(ngModel)]="montantNote "> </p>
+        <p> Devise
+            <input type="text" [(ngModel)]="deviseNote "> </p>
+        <p> Commentaire
+            <input type="text" [(ngModel)]="commentaireNote "> </p>
+    </div>
+</div> -->
 
+<form>
+    <div class="form-row">
 
+        <div class="col-md-5">
+            <input type="text" name="nom" id="nom" [(ngModel)]="newNote.nom" placeholder="Nom" class="form-control">
+            <input name="date" id="date" [(ngModel)]="newNote.date" placeholder="Date" class="form-control">
+            <input type="text" name="commentaire" id="commentaire" [(ngModel)]="newNote.commentaire" placeholder="Commentaire" class="form-control">
+            <input type="number" name="montant" id="montant" [(ngModel)]="newNote.montant" placeholder="Montant" class="form-control">
+            <input type="text" name="devise" id="devise" [(ngModel)]="newNote.devise" placeholder="Devise" class="form-control">
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary" (click)="create()">Add</button>
+        </div>
+    </div>
+</form>

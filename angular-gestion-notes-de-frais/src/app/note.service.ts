@@ -13,12 +13,14 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class NoteService {
     
     api_url = 'http://localhost:3000';
-    private notesUrl = `${this.api_url}/api/todos`;
+    private notesUrl = `${this.api_url}/api/notes`;
     
     // cherche les notes de frais sur le serveur
     getNotes(): Observable<Note[]>{
         return this.http.get<Note[]>(this.notesUrl)
-        .pipe(catchError(this.handleError('getNotes', [])))
+        .pipe(map(res => {
+            return res["data"].docs as Note[];
+        }))
     }
 
     // crée une note de frais 
@@ -33,13 +35,13 @@ export class NoteService {
         return this.http.put(editUrl, note);
       }
     
-   // deleteNote(id: string): any {
+    deleteNote(id : string): any {
         //Delete the object by the id
-       // let deleteUrl = `${this.notesUrl}/${id}`
-        //return this.http.delete(deleteUrl).map(res => {
-           // return res;
-      //  })
-   // }
+        let deleteUrl = `${this.notesUrl}/${id}`
+        return this.http.delete(deleteUrl).pipe(map(res => {
+           return res;
+        }))
+    }
 
 
 
