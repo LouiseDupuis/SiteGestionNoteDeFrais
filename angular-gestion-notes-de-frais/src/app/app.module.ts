@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
@@ -16,21 +17,33 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { HttpClientModule }    from '@angular/common/http';
 
 import {NoteService} from './note.service';
-// les modules suivant servent à créer le faux serveur
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './faux-data-en-memoire';
+import { PageDeConnexionComponent } from './page-de-connexion/page-de-connexion.component';
+
+
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+import { AuthenticationService } from './authentication.service';
+import { AuthGuardService } from './auth-guard.service';
 
 
 
 @NgModule({
+
+  
+
+
   declarations: [
     AppComponent,
     TestComponent,
     CreationNoteComponent,
     NoteComponent,
     NotesDetailsComponent,
-    UserViewComponent
+    UserViewComponent,
+    PageDeConnexionComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -39,13 +52,15 @@ import { InMemoryDataService }  from './faux-data-en-memoire';
       AppRoutingModule,
       HttpClientModule,
       
+      
       // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
      // and returns simulated server responses.
      // Remove it when a real server is ready to receive requests.
      //HttpClientInMemoryWebApiModule.forRoot(
     //InMemoryDataService, { dataEncapsulation: false }
   ],
-  providers: [NoteService],
+  providers: [NoteService,  AuthenticationService, 
+    AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

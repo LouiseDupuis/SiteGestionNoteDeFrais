@@ -1,4 +1,4 @@
-import {Note} from './note_de_frais_classe';
+/* port {Note} from './note_de_frais_classe';
 
 export const listeNotes : Note[] = [
     {date: '1/10/2018',
@@ -19,4 +19,4 @@ export const listeNotes : Note[] = [
     devise: 'euros',
     commentaire:' L\'installation électrique n\'étais pas suffisante',
     valid: false},
-];
+]; */

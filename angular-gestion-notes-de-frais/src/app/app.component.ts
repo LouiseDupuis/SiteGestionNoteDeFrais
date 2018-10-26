@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'NotesFraîches';
-  isAuth = true;
+  constructor(public auth: AuthenticationService) {}
+ 
 
   
 }

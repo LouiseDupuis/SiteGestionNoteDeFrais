@@ -23,8 +23,27 @@
         <p>Bienvenue sur notre site de gestion de note de frais</p>
       </div>
     
-       
-    <div class="row">
+      <div class="navbar navbar-default">
+        <div class="container">
+          <div id="navbar-main">
+            <ul class="nav navbar-nav">
+              <li><a routerLink="">Home</a></li>
+            </ul>
+              <ul class="nav navbar-nav">
+                <li><a routerLink="/register"> S'inscrire</a></li>
+              </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Se connecter</a></li>
+              <li *ngIf="auth.isLoggedIn()"><a routerLink="/userView">{{ auth.getUserDetails()?.name }}</a></li>
+              <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Deconnexion</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      
+        
+    <!-- <div class="row">
           <div class="col-lg-4">
               <button type="button" 
             class="btn btn-lg btn-primary"
@@ -33,16 +52,14 @@
             class="btn btn-lg btn-primary"
             routerLink="/userView">Userview</button></div>
           
-    </div> 
+    </div>  -->
         
     </div>
     
-    
-  <!--<script src="js/scripts.js"></script>-->
+    <router-outlet></router-outlet>
 </body>
 </html>
-<h1>  </h1>
 
 
 
-<router-outlet></router-outlet>
+
