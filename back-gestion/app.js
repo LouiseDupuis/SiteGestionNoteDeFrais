@@ -39,7 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var corsOptions = {
-  origin: '*',
+  origin: 'http://localhost:4200',
   credentials: true };
 
 app.use(cors(corsOptions));
