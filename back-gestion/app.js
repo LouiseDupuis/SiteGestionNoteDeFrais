@@ -39,7 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var corsOptions = {
-  origin: 'http://localhost:4200',
+  origin: '*',
   credentials: true };
 
 app.use(cors(corsOptions));
@@ -68,7 +68,7 @@ app.use(cors(corsOptions));
   }; */
 
 
-  app.use(permitCrossDomainRequests);
+  //app.use(permitCrossDomainRequests);
 
 
 // add mongoose support 
